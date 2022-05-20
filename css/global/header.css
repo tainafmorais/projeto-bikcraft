@@ -1,0 +1,71 @@
+.header-bg {
+    background-color: var(--cor-12);
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between; /* coloca cada item em uma ponta da tela */
+    align-items: center; /* alinha itens verticalmente ao centro */
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header-menu {
+    display: flex; /* colocar os itens menu em do lado do outro */
+    flex-wrap: wrap;
+    gap: 40px; /* distanciar os itens */
+}
+
+.header-menu a {
+    display: inline-block;
+    padding: 16px 0; /* para aumentar a área de contato */
+    position: relative; /* base do position relative */
+}
+
+.header-menu a::after { /* criar um sublinhado em cada link a, com width de 0 para não aparecer */
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0%;
+    background-color: var(--cor-0);
+    margin-top: 4px;
+    transition: 0.3s; /* fazer o link aparecer lentamente */
+    position: absolute; /* ao acrescentar este item, desalinhou o alinhamento vertical, isso fez voltar a alinhar */
+}
+
+.header-menu a:hover::after,
+.header-menu a.ativo::after {   /* inclusão do JS */
+    width: 100%; /* inclui o sublinhado quando passa o mouse */
+}
+
+@media (max-width: 800px) {
+    .header-menu {
+        gap: 20px;
+    }
+
+    .header-menu a {
+        background-color: var(--cor-11);
+        padding: 12px 16px;
+        border-radius: 4px;
+    }
+
+    .header-menu a:hover {
+        background-color: var(--cor-10);
+    }
+
+    .header a::after {
+        display: none; /* retirar o sublinhado, pois para celular perde sentido */
+    }
+}
+
+@media (max-width: 600px) {
+    .header-menu {
+        gap: 12px;
+    }
+    .header-menu a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
